@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add_path_to_cmdv0.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoore <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 13:36:23 by smoore            #+#    #+#             */
+/*   Updated: 2025/02/07 13:36:32 by smoore           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "data.h"
-	//add_path_cmdv0(cmdv, data);
 
 static char **get_paths(t_data *data);
 static bool	try_find_target_path(char ***paths, char **cmdv0, char *saved_cmdv0);

@@ -1,8 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   try_expand_dup.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoore <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 13:38:17 by smoore            #+#    #+#             */
+/*   Updated: 2025/02/07 13:38:18 by smoore           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/data.h"
 
-//expand = try_expand_dup(substr);
-//aaa$USER a -> aaadell
-//aaa$USERaa -> aaa
 char	*get_plain_substr(char *name, int *i);
 char	*get_expanded_substr(char *substr, int *i, t_data *data);
 char	*try_expand_dup(char *substr, t_data *data);

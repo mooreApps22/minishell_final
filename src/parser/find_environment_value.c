@@ -1,6 +1,16 @@
-#include "../inc/data.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_environment_value.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoore <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 13:37:00 by smoore            #+#    #+#             */
+/*   Updated: 2025/02/07 13:37:02 by smoore           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-//	expand = find_environment_value(substr, data);
+#include "../inc/data.h"
 
 char	*get_key(char *env_cur);
 char	*search_for_env_match(char *key, char **env);

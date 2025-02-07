@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   config_minishell_signals.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoore <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 12:01:31 by smoore            #+#    #+#             */
+/*   Updated: 2025/02/07 12:04:55 by smoore           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/data.h"
 
 void	config1(struct termios *saved_termios)
@@ -15,7 +27,7 @@ void	config_sigquit(void)
 	struct sigaction	sigquit;
 
 	sigquit.sa_handler = SIG_IGN;
-	sigquit.sa_flags = 0;//SA_RESTART
+	sigquit.sa_flags = 0;
 	sigemptyset(&sigquit.sa_mask);
 	sigaction(SIGQUIT, &sigquit, NULL);
 }

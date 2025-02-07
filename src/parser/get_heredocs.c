@@ -1,6 +1,16 @@
-#include "../inc/data.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_heredocs.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoore <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 13:37:18 by smoore            #+#    #+#             */
+/*   Updated: 2025/02/07 13:37:19 by smoore           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-//get_heredocs(&data->cmds, data);
+#include "../inc/data.h"
 
 static bool	read_write(t_ins *ins, t_data *data);
 static void	get_cur_heredoc(t_ins *ins, t_data *data);

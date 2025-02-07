@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   execute_builtins.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoore <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 11:59:10 by smoore            #+#    #+#             */
+/*   Updated: 2025/02/07 11:59:50 by smoore           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/data.h"
-//	execute_builtin(data); //
 
 void	execute_builtin(t_data *data, char *cmd);
 
 void	execute_builtin(t_data *data, char *cmd)
-{	
-	if (word_match(cmd, "cd"))	
+{
+	if (word_match(cmd, "cd"))
 		builtin_cd(data->cmds);
 	else if (word_match(cmd, "echo"))
 		builtin_echo(data->cmds);

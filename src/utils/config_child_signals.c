@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   config_child_signals.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoore <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 12:00:45 by smoore            #+#    #+#             */
+/*   Updated: 2025/02/07 12:04:00 by smoore           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/data.h"
 
 void	config_child_sigquit(void);
@@ -17,7 +29,7 @@ void	config_child_sigquit(void)
 void	config_child_sigint(void)
 {
 	struct sigaction	sigint;
-	
+
 	sigint.sa_handler = SIG_DFL;
 	sigint.sa_flags = 0;
 	sigemptyset(&sigint.sa_mask);

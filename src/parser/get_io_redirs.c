@@ -1,9 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_io_redirs.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoore <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 13:37:25 by smoore            #+#    #+#             */
+/*   Updated: 2025/02/07 13:37:28 by smoore           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/data.h"
-//	get_io_redirs(new, *toks);
 
 static void	get_ins_redirs(t_cmd **cmd, t_token *toks, t_data *data);
 static void	get_outs_redirs(t_cmd **cmd, t_token *toks);
-//void	get_io_redirs(t_cmd *cmd, t_token *toks, t_data *data);
 void	get_io_redirs(t_cmd **cmd, t_token *toks, t_data *data);
 
 static void	get_ins_redirs(t_cmd **cmd, t_token *toks, t_data *data)

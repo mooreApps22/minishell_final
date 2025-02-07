@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoore <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 11:52:56 by smoore            #+#    #+#             */
+/*   Updated: 2025/02/07 11:56:50 by smoore           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/data.h"
 
 volatile sig_atomic_t	g_signal;
 
-t_data	*initialize_minishell();
+t_data	*initialize_minishell(void);
 void	free_minishell(t_data *data);
-char	*read_command_line();
+char	*read_command_line(void);
 void	run_minishell(t_data *data);
 
-t_data	*initialize_minishell()
+t_data	*initialize_minishell(void)
 {
 	t_data	*data;
 
@@ -54,7 +66,7 @@ void	free_minishell(t_data *data)
 	}
 }
 
-char	*read_command_line()
+char	*read_command_line(void)
 {
 	char	*input;
 	char	*trim;
@@ -76,10 +88,10 @@ char	*read_command_line()
 
 void	run_minishell(t_data *data)
 {
-	while (data)	
+	while (data)
 	{
 		free_minishell(data);
-		config_minishell_signals(&data->saved_termios);	
+		config_minishell_signals(&data->saved_termios);
 		data->input = read_command_line();
 		if (g_signal == MINI_SIGINT)
 			g_signal = NO_SIGNAL;
@@ -92,12 +104,11 @@ void	run_minishell(t_data *data)
 			rl_clear_history();
 		tokenize(data);
 		parse(data);
-	//	print_execute(data);
 		execute(data);
 	}
 }
 
-int main(void)
+int	main(void)
 {
 	t_data	*data;
 

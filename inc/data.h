@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   data.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoore <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 11:45:05 by smoore            #+#    #+#             */
+/*   Updated: 2025/02/07 12:56:27 by smoore           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef DATA_H
 # define DATA_H
 
-#include "../libft/include/libft.h"
-#include <signal.h> 
-#include <errno.h> 
-#include <dirent.h> 
-#include <termios.h>
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <sys/wait.h>
-#define NO_SIGNAL		0
-#define MINI_SIGINT 	1
-#define HEREDOC_SIGINT 	2
-#define HEREDOC_MODE 	10
+# include "../libft/include/libft.h"
+# include <signal.h> 
+# include <errno.h>
+# include <dirent.h> 
+# include <termios.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <sys/wait.h>
+# define NO_SIGNAL			0
+# define MINI_SIGINT		1
+# define HEREDOC_SIGINT 	2
+# define HEREDOC_MODE		10
 
 extern volatile sig_atomic_t	g_signal;
 enum							e_type
@@ -30,13 +42,13 @@ enum							e_type
 	DELIM,
 };
 
-typedef struct	s_data			t_data;
-typedef struct	s_token			t_token;
-typedef struct	s_cmd			t_cmd;
-typedef struct	s_ins			t_ins;
-typedef struct	s_outs			t_outs;
+typedef struct s_data			t_data;
+typedef struct s_token			t_token;
+typedef struct s_cmd			t_cmd;
+typedef struct s_ins			t_ins;
+typedef struct s_outs			t_outs;
 
-typedef struct	s_ins
+typedef struct s_ins
 {
 	char			*read_fn;
 	char			*eof;
@@ -46,14 +58,14 @@ typedef struct	s_ins
 	t_ins			*next;
 }	t_ins;
 
-typedef struct	s_outs
+typedef struct s_outs
 {
 	char			*trunc_fn;
 	char			*append_fn;
 	t_outs			*next;
 }	t_outs;
 
-typedef struct	s_cmd
+typedef struct s_cmd
 {
 	char			**cmdv;
 	t_ins			*ins;
@@ -63,7 +75,7 @@ typedef struct	s_cmd
 	t_cmd			*next;
 }	t_cmd;
 
-typedef struct	s_token
+typedef struct s_token
 {
 	char			*str;	
 	t_token			*next;
@@ -71,7 +83,7 @@ typedef struct	s_token
 	int				type;
 }	t_token;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	char			*input;
 	struct termios	saved_termios;
@@ -89,25 +101,28 @@ typedef struct	s_data
 	int				write_fd;
 }	t_data;
 
-
 //	** MAIN  **	//
-t_data	*initialize_minishell();
+t_data	*initialize_minishell(void);
 void	free_minishell(t_data *data);
-char	*read_command_line();
+char	*read_command_line(void);
 void	run_minishell(t_data *data);
 
-//	** UTILS  **	//
+//	** UTILS STRS **	//
 bool	word_match(char *word, char *check);
 bool	is_blank(char c);
 bool	is_symbol(char c);
 bool	is_quote(char c);
+
 int		quoted_strlen(char *str);
 
 bool	has_quotes(char *str);
+bool	calculate_if_finished(int single_quotes, int double_quotes);
 bool	has_finished_quotes(char *str);
+char	get_last_quote(char *input);
+
 char	*finish_quotes(char *input);
 
-//	** SIGNALS  **	//
+//	** UTILS SIGNALS  **	//
 void	config1(struct termios *saved_termios);
 void	config_sigquit(void);
 void	sigint_handl3(int signal);

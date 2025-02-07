@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   config_parent_signals.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smoore <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 12:02:02 by smoore            #+#    #+#             */
+/*   Updated: 2025/02/07 12:04:32 by smoore           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/data.h"
 
 void	parent_sigint_handl3(int signal)
@@ -16,7 +28,7 @@ void	config_parent_sigint(void)
 
 	g_signal = 1;
 	sigint.sa_handler = parent_sigint_handl3;
-	sigint.sa_flags = 0;//SA_RESTART
+	sigint.sa_flags = 0;
 	sigemptyset(&sigint.sa_mask);
 	sigaction(SIGINT, &sigint, NULL);
 }
